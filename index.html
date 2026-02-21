@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hospital Management System</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header-modern">
+    <div class="header-wrapper">
+      <div class="header-branding">
+        <div class="logo-icon">🏥</div>
+        <div class="header-text">
+          <h1>Hospital Management System</h1>
+          <p class="tagline">Professional Patient Care & Records Management</p>
+        </div>
+      </div>
+      <div class="header-stats">
+        <div class="stat-box">
+          <span class="stat-number" id="stat-count">0</span>
+          <span class="stat-label">Total Patients</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <div class="container-grid">
+      <section class="form-section card-shadow">
+        <div class="section-header">
+          <h2 id="form-title">➕ Add Patient</h2>
+          <p class="section-subtitle">Fill in the patient information below</p>
+        </div>
+        <form id="patient-form" class="patient-form">
+          <input type="hidden" id="patient-id" />
+          
+          <div class="form-group">
+            <label for="name" class="form-label">
+              <span class="label-text">Full Name <span class="required">*</span></span>
+            </label>
+            <input type="text" id="name" class="form-input" placeholder="Enter patient's full name" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="age" class="form-label">
+                <span class="label-text">Age <span class="required">*</span></span>
+              </label>
+              <input type="number" id="age" class="form-input" min="0" max="150" placeholder="Age" required />
+            </div>
+            <div class="form-group">
+              <label for="gender" class="form-label">
+                <span class="label-text">Gender <span class="required">*</span></span>
+              </label>
+              <select id="gender" class="form-input" required>
+                <option value="">-- Select Gender --</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="ailment" class="form-label">
+              <span class="label-text">Primary Ailment / Diagnosis</span>
+            </label>
+            <input type="text" id="ailment" class="form-input" placeholder="Main complaint or diagnosis..." />
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">💾 Save Patient</button>
+            <button type="button" id="reset-btn" class="btn btn-secondary">↻ Clear Form</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="list-section card-shadow">
+        <div class="section-header">
+          <h2>👥 Patient Directory</h2>
+          <p class="section-subtitle">View and manage all registered patients</p>
+        </div>
+        
+        <div class="search-container">
+          <input id="search" class="search-input" placeholder="🔍 Search by name, age, or ailment..." />
+        </div>
+
+        <div class="table-wrapper">
+          <table id="patients-table" class="patients-table">
+            <thead>
+              <tr>
+                <th>👤 Name</th>
+                <th>📅 Age</th>
+                <th>⚧ Gender</th>
+                <th>🏥 Ailment</th>
+                <th>⚙️ Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <p id="empty-msg" class="empty-state">📭 No patients yet. Add one to get started!</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer-modern">
+    <div class="footer-content">
+      <p>💾 All data is securely stored in your browser (localStorage)</p>
+      <p class="footer-meta" >© 2026 Hospital Management System |</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
